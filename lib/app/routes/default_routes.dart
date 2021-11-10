@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_nuconta/app/pages/home/home_page.dart';
+import '../ui/pages/pages.dart';
 
 import 'app_routes.dart';
 
