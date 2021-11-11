@@ -1,7 +1,7 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:marketplace_nuconta/app/routes/default_routes.dart';
+
+import 'routes/default_routes.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -10,10 +10,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Marketplace Nuconta',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-      ),
       onGenerateRoute: (RouteSettings settings) {
         log('::${settings.name}');
 

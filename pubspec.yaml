@@ -28,12 +28,12 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
-  fonts:
-    - family: Roboto
-      fonts:
-        - asset: lib/app/assets/fonts/Roboto-Black.ttf
-        - asset: lib/app/assets/fonts/Roboto-Bold.ttf
-          weight: 700
-        - asset: lib/app/assets/fonts/Roboto-Light.ttf
-        - asset: lib/app/assets/fonts/Roboto-Medium.ttf
-        - asset: lib/app/assets/fonts/Roboto-Regular.ttf
+  # fonts:
+  #   - family: Roboto
+  #     fonts:
+  #       - asset: lib/app/assets/fonts/Roboto-Black.ttf
+  #       - asset: lib/app/assets/fonts/Roboto-Bold.ttf
+  #         weight: 700
+  #       - asset: lib/app/assets/fonts/Roboto-Light.ttf
+  #       - asset: lib/app/assets/fonts/Roboto-Medium.ttf
+  #       - asset: lib/app/assets/fonts/Roboto-Regular.ttf
