@@ -1,8 +1,8 @@
 class Product {
-  String? id;
-  String? name;
-  String? description;
-  String? image;
+  final String? id;
+  final String? name;
+  final String? description;
+  final String? image;
 
   Product({
     this.id,

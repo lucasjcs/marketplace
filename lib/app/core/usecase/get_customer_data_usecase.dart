@@ -11,8 +11,8 @@ class GetCustomerDataUseCase implements GetCustomerDataInteractor {
   });
 
   @override
-  Future<Customer?> execute() {
-    // TODO: implement execute
-    throw UnimplementedError();
+  Future<Customer?> execute() async {
+    final response = await this.getCustomerDataGateway.getCustomerOffers();
+    return response;
   }
 }

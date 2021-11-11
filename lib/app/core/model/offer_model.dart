@@ -3,9 +3,9 @@ import '../../core/domain/domain.dart';
 import 'model.dart';
 
 class OfferModel extends Offer {
-  String? id;
-  int? price;
-  Product? product;
+  final String? id;
+  final int? price;
+  final Product? product;
 
   OfferModel({
     this.id,

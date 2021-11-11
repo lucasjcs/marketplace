@@ -3,10 +3,10 @@ import '../../core/domain/domain.dart';
 import 'model.dart';
 
 class CustomerModel extends Customer {
-  String? id;
-  String? name;
-  List<Offer>? offers;
-  int? balance;
+  final String? id;
+  final String? name;
+  final List<OfferModel>? offers;
+  final int? balance;
 
   CustomerModel({
     this.id,
@@ -24,7 +24,11 @@ class CustomerModel extends Customer {
       id: json['id'],
       name: json['name'],
       balance: json['balance'],
-      offers: json['offers'].map((it) => OfferModel.fromJson(it)).toList(),
+      offers: json['offers'] != null
+          ? (json['offers'] as List)
+              .map((it) => OfferModel.fromJson(it))
+              .toList()
+          : null,
     );
   }
 }

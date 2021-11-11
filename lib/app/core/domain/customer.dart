@@ -1,10 +1,10 @@
-import 'domain.dart';
+import '../../core/model/model.dart';
 
 class Customer {
-  String? id;
-  String? name;
-  List<Offer>? offers;
-  int? balance;
+  final String? id;
+  final String? name;
+  final List<OfferModel>? offers;
+  final int? balance;
 
   Customer({
     this.id,

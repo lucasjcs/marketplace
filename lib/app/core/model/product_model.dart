@@ -1,10 +1,10 @@
 import '../../core/domain/product.dart';
 
 class ProductModel extends Product {
-  String? id;
-  String? name;
-  String? description;
-  String? image;
+  final String? id;
+  final String? name;
+  final String? description;
+  final String? image;
 
   ProductModel({
     this.id,

@@ -8,6 +8,13 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
+scripts:
+  get: flutter packages get
+  appicon: flutter pub run flutter_launcher_icons:main -f pubspec.yaml
+  apk: flutter build apk
+  test: flutter test --coverage ./lib
+  coverage: genhtml -o coverage coverage/lcov.info & xdg-open coverage/index-sort-l.html #works on linux
+
 dependencies:
   flutter:
     sdk: flutter
@@ -18,6 +25,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mockito: ^5.0.16
+  build_runner:
 
   flutter_lints: ^1.0.0
 

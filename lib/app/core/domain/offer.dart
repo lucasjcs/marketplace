@@ -1,9 +1,9 @@
 import 'domain.dart';
 
 class Offer {
-  String? id;
-  int? price;
-  Product? product;
+  final String? id;
+  final int? price;
+  final Product? product;
 
   Offer({
     required this.id,
