@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../components/components.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,8 +10,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultScaffold(
       title: 'Marketplace',
-      body: Container(
-        child: Text('oiee'),
+      body: Obx(
+        () => Column(
+          children: [
+            Text('controller.count.toString()'),
+            TextButton(
+              onPressed: () {},
+              child: Text('click here'),
+            )
+          ],
+        ),
       ),
     );
   }

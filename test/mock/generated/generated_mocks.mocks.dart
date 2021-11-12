@@ -4,9 +4,9 @@
 
 import 'dart:async' as _i4;
 
-import 'package:marketplace_nuconta/app/core/gateways/get_customer_data_gateway.dart'
+import 'package:marketplace_nuconta/app/domain/gateways/get_customer_data_gateway.dart'
     as _i3;
-import 'package:marketplace_nuconta/app/core/model/model.dart' as _i2;
+import 'package:marketplace_nuconta/app/domain/model/model.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values

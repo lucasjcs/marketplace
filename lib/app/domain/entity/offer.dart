@@ -1,9 +1,9 @@
-import 'domain.dart';
+import '../../domain/model/model.dart';
 
 class Offer {
   final String? id;
   final int? price;
-  final Product? product;
+  final ProductModel? product;
 
   Offer({
     required this.id,

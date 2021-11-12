@@ -19,6 +19,7 @@ dependencies:
   flutter:
     sdk: flutter
   lint: ^1.7.2
+  get:
 
   cupertino_icons: ^1.0.2
 

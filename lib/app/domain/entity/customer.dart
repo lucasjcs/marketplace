@@ -1,4 +1,4 @@
-import '../../core/model/model.dart';
+import '../model/model.dart';
 
 class Customer {
   final String? id;

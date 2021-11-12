@@ -1,4 +1,4 @@
-import 'package:marketplace_nuconta/app/core/gateways/gateways.dart';
+import 'package:marketplace_nuconta/app/domain/gateways/gateways.dart';
 import 'package:mockito/annotations.dart';
 
 export 'generated_mocks.mocks.dart';

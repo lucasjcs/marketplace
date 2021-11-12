@@ -1,11 +1,11 @@
-import '../../core/domain/domain.dart';
+import '../../domain/entity/entity.dart';
 
 import 'model.dart';
 
 class OfferModel extends Offer {
   final String? id;
   final int? price;
-  final Product? product;
+  final ProductModel? product;
 
   OfferModel({
     this.id,
