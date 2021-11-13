@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:marketplace_nuconta/app/ui/styles/app_colors.dart';
 
 class DefaultScaffold extends StatelessWidget {
-  final String title;
+  final Widget? title;
   final Widget body;
+  final bool showAppBar;
 
   const DefaultScaffold({
     required this.body,
-    this.title = '',
+    this.showAppBar = false,
+    this.title,
     Key? key,
   }) : super(key: key);
 
@@ -15,18 +17,17 @@ class DefaultScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: AppBar(
-        backgroundColor: AppColors.purple,
-        toolbarHeight: 35,
-        elevation: 0,
-        title: Text(
-          this.title,
-          style: TextStyle(fontSize: 16),
-        ),
-      ),
+      appBar: showAppBar
+          ? AppBar(
+              backgroundColor: AppColors.purple,
+              toolbarHeight: 80,
+              elevation: 0,
+              title: this.title,
+            )
+          : null,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(25),
           child: body,
         ),
       ),

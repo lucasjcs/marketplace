@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
-import 'package:marketplace_nuconta/app/factory/app_controller_factory.dart';
-import 'package:marketplace_nuconta/app/provider/graphql/client/graphql_client.dart';
-import 'package:marketplace_nuconta/app/routes/app_routes.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_page.dart';
+
+import '../factory/app_controller_factory.dart';
+import '../provider/graphql/client/graphql_client.dart';
+import '../routes/app_routes.dart';
 import '../ui/pages/pages.dart';
 
 class GetRoutes {
@@ -14,8 +16,16 @@ class GetRoutes {
 
     return [
       GetPage(
+        name: AppRoutes.splash,
+        page: () => SplashPage(controller: appController),
+      ),
+      GetPage(
         name: AppRoutes.homePage,
         page: () => HomePage(controller: appController),
+      ),
+      GetPage(
+        name: AppRoutes.marketplace,
+        page: () => Marketplace(controller: appController),
       ),
     ];
   }
