@@ -25,7 +25,7 @@ void main() {
       CustomerDataMock.customerData,
     )['data']['viewer'];
 
-    when(getCustomerDataGatewayMock.getCustomerOffers()).thenAnswer(
+    when(getCustomerDataGatewayMock.getCustomerData()).thenAnswer(
       (_) async => CustomerModel.fromJson(data),
     );
 
