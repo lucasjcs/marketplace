@@ -1,3 +1,4 @@
+import 'package:graphql/client.dart';
 import 'package:marketplace_nuconta/app/domain/gateways/gateways.dart';
 import 'package:marketplace_nuconta/app/domain/usecase/usecase.dart';
 import 'package:marketplace_nuconta/app/provider/graphql/client/graphql_client.dart';
@@ -9,6 +10,7 @@ export 'generated_mocks.mocks.dart';
 @GenerateMocks([
   GetCustomerDataGateway,
   GetCustomerDataUseCase,
+  QueryOptions,
   GraphQLClient,
 ])
 void fn() {}

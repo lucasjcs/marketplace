@@ -8,6 +8,7 @@ import 'package:marketplace_nuconta/app/domain/usecase/get_customer_data_usecase
 
 import '../../mock/customer_data_mock.dart';
 import '../../mock/generated/generated_mocks.dart';
+import '../test_utils/test_utils.dart';
 
 void main() {
   late GetCustomerDataGateway getCustomerDataGatewayMock;
@@ -21,12 +22,8 @@ void main() {
   });
 
   test('should return customer data correctly', () async {
-    final data = jsonDecode(
-      CustomerDataMock.customerData,
-    )['data']['viewer'];
-
     when(getCustomerDataGatewayMock.getCustomerData()).thenAnswer(
-      (_) async => CustomerModel.fromJson(data),
+      (_) async => TestUtils.makeCustomerData(),
     );
 
     final response = await getCustomerDataUseCase.execute();

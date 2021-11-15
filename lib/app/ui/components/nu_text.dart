@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace_nuconta/app/ui/styles/app_colors.dart';
+import 'package:marketplace_nuconta/app/ui/styles/styles.dart';
 
 class NuText extends StatelessWidget {
   final String text;
@@ -12,7 +13,7 @@ class NuText extends StatelessWidget {
   const NuText({
     required this.text,
     this.bold = false,
-    this.size = 16,
+    this.size = AppFontSize.standard,
     this.color = AppColors.textDark,
     this.center = false,
     this.maxLines = 999999,

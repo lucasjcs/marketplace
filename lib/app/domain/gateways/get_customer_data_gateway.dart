@@ -1,5 +1,5 @@
-import '../../domain/model/model.dart';
+import '../../domain/entity/entity.dart';
 
 abstract class GetCustomerDataGateway {
-  Future<CustomerModel> getCustomerData();
+  Future<Customer?> getCustomerData();
 }

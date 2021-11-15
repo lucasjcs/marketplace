@@ -37,14 +37,17 @@ class Marketplace extends StatelessWidget {
               bold: true,
             ),
             SizedBox(height: 25),
-            Center(
-              child: Wrap(
-                alignment: WrapAlignment.spaceBetween,
-                runSpacing: 10,
-                spacing: 10,
+            Container(
+              width: double.infinity,
+              child: Column(
                 children: [
                   ...controller.customer.value!.offers!.map(
-                    (offer) => OfferItem(offer: offer),
+                    (offer) => Column(
+                      children: [
+                        OfferItem(offer: offer),
+                        SizedBox(height: 10),
+                      ],
+                    ),
                   ),
                 ],
               ),

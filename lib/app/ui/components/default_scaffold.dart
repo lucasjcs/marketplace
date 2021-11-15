@@ -5,11 +5,13 @@ class DefaultScaffold extends StatelessWidget {
   final Widget? title;
   final Widget body;
   final bool showAppBar;
+  final bool safeArea;
 
   const DefaultScaffold({
     required this.body,
-    this.showAppBar = false,
     this.title,
+    this.showAppBar = false,
+    this.safeArea = true,
     Key? key,
   }) : super(key: key);
 
@@ -25,12 +27,17 @@ class DefaultScaffold extends StatelessWidget {
               title: this.title,
             )
           : null,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(25),
-          child: body,
-        ),
-      ),
+      body: safeArea
+          ? SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(25),
+                child: body,
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.all(25),
+              child: body,
+            ),
     );
   }
 }

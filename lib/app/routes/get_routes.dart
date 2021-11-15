@@ -8,10 +8,8 @@ import '../ui/pages/pages.dart';
 
 class GetRoutes {
   List<GetPage<dynamic>> get routes {
-    final graphQLClient = GraphQLClient();
-
     final appController = AppControllerFactory.create(
-      graphqlRequest: graphQLClient.api(),
+      graphQLClient: GraphqlClient.api(),
     );
 
     return [

@@ -1,14 +1,11 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
-import 'package:marketplace_nuconta/app/domain/entity/entity.dart';
 import 'package:marketplace_nuconta/app/domain/model/model.dart';
 import 'package:marketplace_nuconta/app/domain/usecase/get_customer_data_usecase.dart';
 import 'package:marketplace_nuconta/app/ui/pages/app_controller.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../mock/customer_data_mock.dart';
 import '../../mock/generated/generated_mocks.dart';
+import '../test_utils/test_utils.dart';
 
 void main() {
   late GetCustomerDataUseCase useCaseMock;
@@ -20,12 +17,8 @@ void main() {
   });
 
   test('shoud request customer data correctly', () async {
-    final data = jsonDecode(
-      CustomerDataMock.customerData,
-    )['data']['viewer'];
-
     when(useCaseMock.execute()).thenAnswer(
-      (_) async => CustomerModel.fromJson(data),
+      (_) async => TestUtils.makeCustomerData(),
     );
 
     await controller.getCustomerData();
