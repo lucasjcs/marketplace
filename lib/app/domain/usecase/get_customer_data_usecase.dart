@@ -11,7 +11,6 @@ class GetCustomerDataUseCase implements GetCustomerDataInteractor {
 
   @override
   Future<Customer?> execute() async {
-    final response = await this.getCustomerDataGateway.getCustomerData();
-    return response;
+    return await this.getCustomerDataGateway.getCustomerData();
   }
 }

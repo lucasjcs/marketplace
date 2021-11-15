@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:marketplace_nuconta/app/routes/app_routes.dart';
 import 'package:marketplace_nuconta/app/ui/util/util.dart';
 
 import '../../../domain/entity/entity.dart';
@@ -8,8 +10,9 @@ import '../../styles/styles.dart';
 
 class MarketPlaceDetails extends StatelessWidget {
   final Offer offer;
+  final Function buy;
 
-  const MarketPlaceDetails({required this.offer});
+  const MarketPlaceDetails({required this.offer, required this.buy});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +79,21 @@ class MarketPlaceDetails extends StatelessWidget {
                 RoundedButton(
                   text: 'Buy',
                   fullWidth: true,
-                  onPress: () {},
+                  onPress: () async {
+                    await Util.getDialog(
+                      title: 'Do you want to complete the purchase?',
+                      subtitle:
+                          'You are buying a ${offer.product!.name}, want to continue?',
+                      confirm: 'Yes, buy now',
+                      cancel: 'Cencel',
+                      actionConfirm: () {
+                        //Make a purshas
+
+                        Get.offAllNamed(AppRoutes.homePage);
+                      },
+                      actionCancel: () => Get.back(),
+                    );
+                  },
                 ),
               ],
             ),

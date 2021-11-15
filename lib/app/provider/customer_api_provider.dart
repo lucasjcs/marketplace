@@ -1,14 +1,12 @@
-import 'dart:convert';
-
 import 'package:graphql/client.dart';
 import 'package:marketplace_nuconta/app/domain/entity/entity.dart';
 
 import '../domain/model/model.dart';
 
 import '../domain/gateways/gateways.dart';
-import 'graphql/customer_data_mock.dart';
 
-class CustomerApiProvider implements GetCustomerDataGateway {
+class CustomerApiProvider
+    implements GetCustomerDataGateway, MakePurshaseGateway {
   final GraphQLClient graphQLClient;
 
   CustomerApiProvider({required this.graphQLClient});
@@ -42,5 +40,10 @@ class CustomerApiProvider implements GetCustomerDataGateway {
     }
 
     return null;
+  }
+
+  @override
+  Future<PurchaseResponse> makePurshase({required String offerId}) async {
+    throw UnimplementedError();
   }
 }

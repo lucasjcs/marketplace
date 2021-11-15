@@ -4,6 +4,7 @@ abstract class AppColors {
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
   static const textDark = Color(0xFF3E3F3F);
+  static const disabled = Color(0xFF999999);
   static const textLight = Color(0xFF909097);
   static const purple = Color(0xFF7300CE);
   static const lightPurple = Color(0xFFbc8ae1);
