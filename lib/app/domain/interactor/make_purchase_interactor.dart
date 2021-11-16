@@ -1,5 +1,5 @@
 import '../../domain/entity/entity.dart';
 
-abstract class MakePurshaseInteractor {
+abstract class MakePurchaseInteractor {
   Future<PurchaseResponse> execute({required String offerId});
 }

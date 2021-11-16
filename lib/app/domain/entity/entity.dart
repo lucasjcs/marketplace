@@ -1,4 +1,4 @@
 export 'customer.dart';
 export 'offer.dart';
 export 'product.dart';
-export 'purshase_response.dart';
+export 'purchase_response.dart';

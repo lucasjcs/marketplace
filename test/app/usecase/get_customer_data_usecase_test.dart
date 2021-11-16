@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -6,7 +5,6 @@ import 'package:marketplace_nuconta/app/domain/gateways/gateways.dart';
 import 'package:marketplace_nuconta/app/domain/model/model.dart';
 import 'package:marketplace_nuconta/app/domain/usecase/get_customer_data_usecase.dart';
 
-import '../../mock/customer_data_mock.dart';
 import '../../mock/generated/generated_mocks.dart';
 import '../test_utils/test_utils.dart';
 

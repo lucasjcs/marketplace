@@ -1,19 +1,19 @@
 import 'package:get/get.dart';
-import 'package:marketplace_nuconta/app/domain/entity/entity.dart';
-import 'package:marketplace_nuconta/app/domain/usecase/make_purshase_usecase.dart';
+import '../../../domain/entity/entity.dart';
+import '../../../domain/usecase/make_purshase_usecase.dart';
 import '../../mixins/mixins.dart';
 
 class MarketplaceController extends GetxController with PageState {
-  final MakePurshaseUseCase makePurshaseUseCase;
+  final MakePurchaseUseCase makePurchaseUseCase;
 
-  MarketplaceController({required this.makePurshaseUseCase});
+  MarketplaceController({required this.makePurchaseUseCase});
 
   late var purshaseResponse =
       PurchaseResponse(errorMessage: '', success: false).obs;
 
-  Future<void> makePurshase({required String offerId}) async {
+  Future<void> makePurchase({required String offerId}) async {
     purshaseResponse.value = await this.run(
-      () => makePurshaseUseCase.execute(offerId: offerId),
+      () => makePurchaseUseCase.execute(offerId: offerId),
     );
   }
 }

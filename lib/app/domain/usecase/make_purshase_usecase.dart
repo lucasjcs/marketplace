@@ -1,15 +1,15 @@
 import 'package:marketplace_nuconta/app/domain/gateways/gateways.dart';
 
-import '../../domain/entity/purshase_response.dart';
+import '../entity/purchase_response.dart';
 import '../../domain/interactor/make_purchase_interactor.dart';
 
-class MakePurshaseUseCase implements MakePurshaseInteractor {
-  final MakePurshaseGateway makePurshaseGateway;
+class MakePurchaseUseCase implements MakePurchaseInteractor {
+  final MakePurchaseGateway makePurchaseGateway;
 
-  MakePurshaseUseCase({required this.makePurshaseGateway});
+  MakePurchaseUseCase({required this.makePurchaseGateway});
 
   @override
   Future<PurchaseResponse> execute({required String offerId}) async {
-    return await this.makePurshaseGateway.makePurshase(offerId: offerId);
+    return await this.makePurchaseGateway.makePurchase(offerId: offerId);
   }
 }

@@ -63,6 +63,7 @@ class OfferItem extends StatelessWidget {
             onPress: () {
               Get.to(() => MarketPlaceDetails(
                     offer: offer,
+                    buy: () {},
                   ));
             },
           ),

@@ -7,8 +7,8 @@ import '../ui/pages/marketplace/marketplace_controller.dart';
 class MarketplaceControllerFactory {
   static MarketplaceController create({required dynamic graphQLClient}) =>
       MarketplaceController(
-        makePurshaseUseCase: MakePurshaseUseCase(
-          makePurshaseGateway:
+        makePurchaseUseCase: MakePurchaseUseCase(
+          makePurchaseGateway:
               CustomerApiProvider(graphQLClient: graphQLClient),
         ),
       );

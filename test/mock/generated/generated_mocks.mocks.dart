@@ -2,17 +2,17 @@
 // in marketplace_nuconta/test/mock/generated/generated_mocks.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i7;
+import 'dart:async' as _i6;
 
-import 'package:gql/ast.dart' as _i3;
-import 'package:gql_exec/gql_exec.dart' as _i5;
-import 'package:graphql/client.dart' as _i6;
-import 'package:graphql/src/core/_data_class.dart' as _i10;
-import 'package:graphql/src/core/policies.dart' as _i4;
-import 'package:marketplace_nuconta/app/domain/entity/entity.dart' as _i8;
+import 'package:gql/ast.dart' as _i4;
+import 'package:graphql/client.dart' as _i5;
+import 'package:graphql/src/core/_data_class.dart' as _i9;
+import 'package:marketplace_nuconta/app/domain/entity/entity.dart' as _i3;
 import 'package:marketplace_nuconta/app/domain/gateways/gateways.dart' as _i2;
 import 'package:marketplace_nuconta/app/domain/usecase/get_customer_data_usecase.dart'
-    as _i9;
+    as _i7;
+import 'package:marketplace_nuconta/app/domain/usecase/make_purshase_usecase.dart'
+    as _i8;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -27,28 +27,34 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeGetCustomerDataGateway_0 extends _i1.Fake
     implements _i2.GetCustomerDataGateway {}
 
-class _FakeDocumentNode_1 extends _i1.Fake implements _i3.DocumentNode {}
+class _FakePurchaseResponse_1 extends _i1.Fake implements _i3.PurchaseResponse {
+}
 
-class _FakePolicies_2 extends _i1.Fake implements _i4.Policies {}
+class _FakeMakePurchaseGateway_2 extends _i1.Fake
+    implements _i2.MakePurchaseGateway {}
 
-class _FakeContext_3 extends _i1.Fake implements _i5.Context {}
+class _FakeDocumentNode_3 extends _i1.Fake implements _i4.DocumentNode {}
 
-class _FakeRequest_4 extends _i1.Fake implements _i5.Request {}
+class _FakePolicies_4 extends _i1.Fake implements _i5.Policies {}
 
-class _FakeWatchQueryOptions_5 extends _i1.Fake
-    implements _i6.WatchQueryOptions {}
+class _FakeContext_5 extends _i1.Fake implements _i5.Context {}
 
-class _FakeDefaultPolicies_6 extends _i1.Fake implements _i4.DefaultPolicies {}
+class _FakeRequest_6 extends _i1.Fake implements _i5.Request {}
 
-class _FakeLink_7 extends _i1.Fake implements _i6.Link {}
+class _FakeWatchQueryOptions_7 extends _i1.Fake
+    implements _i5.WatchQueryOptions {}
 
-class _FakeGraphQLCache_8 extends _i1.Fake implements _i6.GraphQLCache {}
+class _FakeDefaultPolicies_8 extends _i1.Fake implements _i5.DefaultPolicies {}
 
-class _FakeQueryManager_9 extends _i1.Fake implements _i6.QueryManager {}
+class _FakeLink_9 extends _i1.Fake implements _i5.Link {}
 
-class _FakeObservableQuery_10 extends _i1.Fake implements _i6.ObservableQuery {}
+class _FakeGraphQLCache_10 extends _i1.Fake implements _i5.GraphQLCache {}
 
-class _FakeQueryResult_11 extends _i1.Fake implements _i6.QueryResult {}
+class _FakeQueryManager_11 extends _i1.Fake implements _i5.QueryManager {}
+
+class _FakeObservableQuery_12 extends _i1.Fake implements _i5.ObservableQuery {}
+
+class _FakeQueryResult_13 extends _i1.Fake implements _i5.QueryResult {}
 
 /// A class which mocks [GetCustomerDataGateway].
 ///
@@ -60,9 +66,9 @@ class MockGetCustomerDataGateway extends _i1.Mock
   }
 
   @override
-  _i7.Future<_i8.Customer?> getCustomerData() => (super.noSuchMethod(
+  _i6.Future<_i3.Customer?> getCustomerData() => (super.noSuchMethod(
       Invocation.method(#getCustomerData, []),
-      returnValue: Future<_i8.Customer?>.value()) as _i7.Future<_i8.Customer?>);
+      returnValue: Future<_i3.Customer?>.value()) as _i6.Future<_i3.Customer?>);
   @override
   String toString() => super.toString();
 }
@@ -71,7 +77,7 @@ class MockGetCustomerDataGateway extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGetCustomerDataUseCase extends _i1.Mock
-    implements _i9.GetCustomerDataUseCase {
+    implements _i7.GetCustomerDataUseCase {
   MockGetCustomerDataUseCase() {
     _i1.throwOnMissingStub(this);
   }
@@ -82,9 +88,52 @@ class MockGetCustomerDataUseCase extends _i1.Mock
               returnValue: _FakeGetCustomerDataGateway_0())
           as _i2.GetCustomerDataGateway);
   @override
-  _i7.Future<_i8.Customer?> execute() => (super.noSuchMethod(
+  _i6.Future<_i3.Customer?> execute() => (super.noSuchMethod(
       Invocation.method(#execute, []),
-      returnValue: Future<_i8.Customer?>.value()) as _i7.Future<_i8.Customer?>);
+      returnValue: Future<_i3.Customer?>.value()) as _i6.Future<_i3.Customer?>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [MakePurchaseGateway].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockMakePurchaseGateway extends _i1.Mock
+    implements _i2.MakePurchaseGateway {
+  MockMakePurchaseGateway() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i6.Future<_i3.PurchaseResponse> makePurchase({String? offerId}) => (super
+          .noSuchMethod(
+              Invocation.method(#makePurshase, [], {#offerId: offerId}),
+              returnValue:
+                  Future<_i3.PurchaseResponse>.value(_FakePurchaseResponse_1()))
+      as _i6.Future<_i3.PurchaseResponse>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [MakePurshaseUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockMakePurshaseUseCase extends _i1.Mock
+    implements _i8.MakePurchaseUseCase {
+  MockMakePurshaseUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.MakePurchaseGateway get makePurchaseGateway => (super.noSuchMethod(
+      Invocation.getter(#makePurshaseGateway),
+      returnValue: _FakeMakePurchaseGateway_2()) as _i2.MakePurchaseGateway);
+  @override
+  _i6.Future<_i3.PurchaseResponse> execute({String? offerId}) =>
+      (super.noSuchMethod(Invocation.method(#execute, [], {#offerId: offerId}),
+              returnValue:
+                  Future<_i3.PurchaseResponse>.value(_FakePurchaseResponse_1()))
+          as _i6.Future<_i3.PurchaseResponse>);
   @override
   String toString() => super.toString();
 }
@@ -92,7 +141,7 @@ class MockGetCustomerDataUseCase extends _i1.Mock
 /// A class which mocks [QueryOptions].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockQueryOptions extends _i1.Mock implements _i6.QueryOptions {
+class MockQueryOptions extends _i1.Mock implements _i5.QueryOptions {
   MockQueryOptions() {
     _i1.throwOnMissingStub(this);
   }
@@ -106,11 +155,11 @@ class MockQueryOptions extends _i1.Mock implements _i6.QueryOptions {
       (super.noSuchMethod(Invocation.getter(#properties),
           returnValue: <Object?>[]) as List<Object?>);
   @override
-  _i3.DocumentNode get document =>
+  _i4.DocumentNode get document =>
       (super.noSuchMethod(Invocation.getter(#document),
-          returnValue: _FakeDocumentNode_1()) as _i3.DocumentNode);
+          returnValue: _FakeDocumentNode_3()) as _i4.DocumentNode);
   @override
-  set document(_i3.DocumentNode? _document) =>
+  set document(_i4.DocumentNode? _document) =>
       super.noSuchMethod(Invocation.setter(#document, _document),
           returnValueForMissingStub: null);
   @override
@@ -130,15 +179,15 @@ class MockQueryOptions extends _i1.Mock implements _i6.QueryOptions {
       Invocation.setter(#optimisticResult, _optimisticResult),
       returnValueForMissingStub: null);
   @override
-  _i4.Policies get policies => (super.noSuchMethod(Invocation.getter(#policies),
-      returnValue: _FakePolicies_2()) as _i4.Policies);
+  _i5.Policies get policies => (super.noSuchMethod(Invocation.getter(#policies),
+      returnValue: _FakePolicies_4()) as _i5.Policies);
   @override
-  set policies(_i4.Policies? _policies) =>
+  set policies(_i5.Policies? _policies) =>
       super.noSuchMethod(Invocation.setter(#policies, _policies),
           returnValueForMissingStub: null);
   @override
   _i5.Context get context => (super.noSuchMethod(Invocation.getter(#context),
-      returnValue: _FakeContext_3()) as _i5.Context);
+      returnValue: _FakeContext_5()) as _i5.Context);
   @override
   set context(_i5.Context? _context) =>
       super.noSuchMethod(Invocation.setter(#context, _context),
@@ -146,10 +195,10 @@ class MockQueryOptions extends _i1.Mock implements _i6.QueryOptions {
   @override
   _i5.Request get asRequest =>
       (super.noSuchMethod(Invocation.getter(#asRequest),
-          returnValue: _FakeRequest_4()) as _i5.Request);
+          returnValue: _FakeRequest_6()) as _i5.Request);
   @override
-  _i3.OperationType get type => (super.noSuchMethod(Invocation.getter(#type),
-      returnValue: _i3.OperationType.query) as _i3.OperationType);
+  _i4.OperationType get type => (super.noSuchMethod(Invocation.getter(#type),
+      returnValue: _i4.OperationType.query) as _i4.OperationType);
   @override
   bool get isQuery =>
       (super.noSuchMethod(Invocation.getter(#isQuery), returnValue: false)
@@ -163,13 +212,13 @@ class MockQueryOptions extends _i1.Mock implements _i6.QueryOptions {
           .noSuchMethod(Invocation.getter(#isSubscription), returnValue: false)
       as bool);
   @override
-  _i6.WatchQueryOptions asWatchQueryOptions({bool? fetchResults = true}) =>
+  _i5.WatchQueryOptions asWatchQueryOptions({bool? fetchResults = true}) =>
       (super.noSuchMethod(
           Invocation.method(
               #asWatchQueryOptions, [], {#fetchResults: fetchResults}),
-          returnValue: _FakeWatchQueryOptions_5()) as _i6.WatchQueryOptions);
+          returnValue: _FakeWatchQueryOptions_7()) as _i5.WatchQueryOptions);
   @override
-  bool equal(_i10.MutableDataClass? other) => (super
+  bool equal(_i9.MutableDataClass? other) => (super
           .noSuchMethod(Invocation.method(#equal, [other]), returnValue: false)
       as bool);
   @override
@@ -179,61 +228,61 @@ class MockQueryOptions extends _i1.Mock implements _i6.QueryOptions {
 /// A class which mocks [GraphQLClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
+class MockGraphQLClient extends _i1.Mock implements _i5.GraphQLClient {
   MockGraphQLClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.DefaultPolicies get defaultPolicies =>
+  _i5.DefaultPolicies get defaultPolicies =>
       (super.noSuchMethod(Invocation.getter(#defaultPolicies),
-          returnValue: _FakeDefaultPolicies_6()) as _i4.DefaultPolicies);
+          returnValue: _FakeDefaultPolicies_8()) as _i5.DefaultPolicies);
   @override
-  set defaultPolicies(_i4.DefaultPolicies? _defaultPolicies) =>
+  set defaultPolicies(_i5.DefaultPolicies? _defaultPolicies) =>
       super.noSuchMethod(Invocation.setter(#defaultPolicies, _defaultPolicies),
           returnValueForMissingStub: null);
   @override
-  _i6.Link get link =>
-      (super.noSuchMethod(Invocation.getter(#link), returnValue: _FakeLink_7())
-          as _i6.Link);
+  _i5.Link get link =>
+      (super.noSuchMethod(Invocation.getter(#link), returnValue: _FakeLink_9())
+          as _i5.Link);
   @override
-  _i6.GraphQLCache get cache => (super.noSuchMethod(Invocation.getter(#cache),
-      returnValue: _FakeGraphQLCache_8()) as _i6.GraphQLCache);
+  _i5.GraphQLCache get cache => (super.noSuchMethod(Invocation.getter(#cache),
+      returnValue: _FakeGraphQLCache_10()) as _i5.GraphQLCache);
   @override
-  _i6.QueryManager get queryManager =>
+  _i5.QueryManager get queryManager =>
       (super.noSuchMethod(Invocation.getter(#queryManager),
-          returnValue: _FakeQueryManager_9()) as _i6.QueryManager);
+          returnValue: _FakeQueryManager_11()) as _i5.QueryManager);
   @override
-  set queryManager(_i6.QueryManager? _queryManager) =>
+  set queryManager(_i5.QueryManager? _queryManager) =>
       super.noSuchMethod(Invocation.setter(#queryManager, _queryManager),
           returnValueForMissingStub: null);
   @override
-  _i6.ObservableQuery watchQuery(_i6.WatchQueryOptions? options) =>
+  _i5.ObservableQuery watchQuery(_i5.WatchQueryOptions? options) =>
       (super.noSuchMethod(Invocation.method(#watchQuery, [options]),
-          returnValue: _FakeObservableQuery_10()) as _i6.ObservableQuery);
+          returnValue: _FakeObservableQuery_12()) as _i5.ObservableQuery);
   @override
-  _i6.ObservableQuery watchMutation(_i6.WatchQueryOptions? options) =>
+  _i5.ObservableQuery watchMutation(_i5.WatchQueryOptions? options) =>
       (super.noSuchMethod(Invocation.method(#watchMutation, [options]),
-          returnValue: _FakeObservableQuery_10()) as _i6.ObservableQuery);
+          returnValue: _FakeObservableQuery_12()) as _i5.ObservableQuery);
   @override
-  _i7.Future<_i6.QueryResult> query(_i6.QueryOptions? options) =>
+  _i6.Future<_i5.QueryResult> query(_i5.QueryOptions? options) =>
       (super.noSuchMethod(Invocation.method(#query, [options]),
-              returnValue: Future<_i6.QueryResult>.value(_FakeQueryResult_11()))
-          as _i7.Future<_i6.QueryResult>);
+              returnValue: Future<_i5.QueryResult>.value(_FakeQueryResult_13()))
+          as _i6.Future<_i5.QueryResult>);
   @override
-  _i7.Future<_i6.QueryResult> mutate(_i6.MutationOptions? options) =>
+  _i6.Future<_i5.QueryResult> mutate(_i5.MutationOptions? options) =>
       (super.noSuchMethod(Invocation.method(#mutate, [options]),
-              returnValue: Future<_i6.QueryResult>.value(_FakeQueryResult_11()))
-          as _i7.Future<_i6.QueryResult>);
+              returnValue: Future<_i5.QueryResult>.value(_FakeQueryResult_13()))
+          as _i6.Future<_i5.QueryResult>);
   @override
-  _i7.Stream<_i6.QueryResult> subscribe(_i6.SubscriptionOptions? options) =>
+  _i6.Stream<_i5.QueryResult> subscribe(_i5.SubscriptionOptions? options) =>
       (super.noSuchMethod(Invocation.method(#subscribe, [options]),
-              returnValue: Stream<_i6.QueryResult>.empty())
-          as _i7.Stream<_i6.QueryResult>);
+              returnValue: Stream<_i5.QueryResult>.empty())
+          as _i6.Stream<_i5.QueryResult>);
   @override
-  _i7.Future<_i6.QueryResult> fetchMore(_i6.FetchMoreOptions? fetchMoreOptions,
-          {_i6.QueryOptions? originalOptions,
-          _i6.QueryResult? previousResult}) =>
+  _i6.Future<_i5.QueryResult> fetchMore(_i5.FetchMoreOptions? fetchMoreOptions,
+          {_i5.QueryOptions? originalOptions,
+          _i5.QueryResult? previousResult}) =>
       (super.noSuchMethod(
               Invocation.method(#fetchMore, [
                 fetchMoreOptions
@@ -241,8 +290,8 @@ class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
                 #originalOptions: originalOptions,
                 #previousResult: previousResult
               }),
-              returnValue: Future<_i6.QueryResult>.value(_FakeQueryResult_11()))
-          as _i7.Future<_i6.QueryResult>);
+              returnValue: Future<_i5.QueryResult>.value(_FakeQueryResult_13()))
+          as _i6.Future<_i5.QueryResult>);
   @override
   Map<String, dynamic>? readQuery(_i5.Request? request,
           {bool? optimistic = true}) =>
@@ -250,7 +299,7 @@ class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
               #readQuery, [request], {#optimistic: optimistic}))
           as Map<String, dynamic>?);
   @override
-  Map<String, dynamic>? readFragment(_i6.FragmentRequest? fragmentRequest,
+  Map<String, dynamic>? readFragment(_i5.FragmentRequest? fragmentRequest,
           {bool? optimistic = true}) =>
       (super.noSuchMethod(Invocation.method(
               #readFragment, [fragmentRequest], {#optimistic: optimistic}))
@@ -263,18 +312,18 @@ class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
               #writeQuery, [request], {#data: data, #broadcast: broadcast}),
           returnValueForMissingStub: null);
   @override
-  void writeFragment(_i6.FragmentRequest? fragmentRequest,
+  void writeFragment(_i5.FragmentRequest? fragmentRequest,
           {bool? broadcast = true, Map<String, dynamic>? data}) =>
       super.noSuchMethod(
           Invocation.method(#writeFragment, [fragmentRequest],
               {#broadcast: broadcast, #data: data}),
           returnValueForMissingStub: null);
   @override
-  _i7.Future<List<_i6.QueryResult?>>? resetStore(
+  _i6.Future<List<_i5.QueryResult?>>? resetStore(
           {bool? refetchQueries = true}) =>
       (super.noSuchMethod(Invocation.method(
               #resetStore, [], {#refetchQueries: refetchQueries}))
-          as _i7.Future<List<_i6.QueryResult?>>?);
+          as _i6.Future<List<_i5.QueryResult?>>?);
   @override
   String toString() => super.toString();
 }
