@@ -1,12 +1,15 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql/client.dart';
 
 class GraphqlClient {
   static GraphQLClient api() {
+    final _baseUrl = dotenv.env['BASE_URL'];
+    final _accessToken = dotenv.env['ACCESS_TOKEN'];
+
     final Link _link = HttpLink(
-      'https://staging-nu-needful-things.nubank.com.br/query',
+      '$_baseUrl',
       defaultHeaders: {
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhd2Vzb21lY3VzdG9tZXJAZ21haWwuY29tIn0.cGT2KqtmT8KNIJhyww3T8fAzUsCD5_vxuHl5WbXtp8c',
+        'Authorization': 'Bearer $_accessToken',
       },
     );
 

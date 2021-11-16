@@ -25,6 +25,7 @@ dependencies:
   network_image_mock: ^2.0.1
   cupertino_icons: ^1.0.2
   graphql: ^5.0.0
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +40,7 @@ flutter:
 
   assets:
     - lib/app/assets/images/loading_dots.gif
+    - .env
 
   # fonts:
   #   - family: Roboto
