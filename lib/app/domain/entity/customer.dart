@@ -4,7 +4,7 @@ class Customer {
   final String? id;
   final String? name;
   final List<OfferModel>? offers;
-  final int? balance;
+  int? balance;
 
   Customer({
     this.id,

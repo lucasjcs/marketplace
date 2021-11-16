@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:marketplace_nuconta/app/routes/app_routes.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_controller.dart';
 
 import '../../../../assets/app_images.dart';
 import '../../../components/components.dart';
 import '../../../components/rounded_button.dart';
-import '../../../pages/marketplace_details/marketplace_details_page.dart';
+import '../marketplace_details_page.dart';
 import '../../../styles/styles.dart';
 import '../../../util/util.dart';
 
@@ -13,7 +15,9 @@ import '../../../styles/app_colors.dart';
 
 class OfferItem extends StatelessWidget {
   final Offer offer;
-  const OfferItem({required this.offer});
+  final MarketplaceController controller;
+
+  const OfferItem({required this.offer, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +65,12 @@ class OfferItem extends StatelessWidget {
             text: 'See more',
             fullWidth: true,
             onPress: () {
-              Get.to(() => MarketPlaceDetails(
-                    offer: offer,
-                    buy: () {},
-                  ));
+              Get.to(
+                () => MarketPlaceDetails(
+                  offer: offer,
+                  controller: controller,
+                ),
+              );
             },
           ),
         ],

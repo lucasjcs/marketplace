@@ -9,7 +9,7 @@ class MakePurchaseUseCase implements MakePurchaseInteractor {
   MakePurchaseUseCase({required this.makePurchaseGateway});
 
   @override
-  Future<PurchaseResponse> execute({required String offerId}) async {
+  Future<PurchaseResponse?> execute({required String offerId}) async {
     return await this.makePurchaseGateway.makePurchase(offerId: offerId);
   }
 }

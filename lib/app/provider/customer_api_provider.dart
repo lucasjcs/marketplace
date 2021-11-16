@@ -5,8 +5,7 @@ import '../domain/model/model.dart';
 
 import '../domain/gateways/gateways.dart';
 
-class CustomerApiProvider
-    implements GetCustomerDataGateway, MakePurchaseGateway {
+class CustomerApiProvider implements GetCustomerDataGateway {
   final GraphQLClient graphQLClient;
 
   CustomerApiProvider({required this.graphQLClient});
@@ -40,10 +39,5 @@ class CustomerApiProvider
     }
 
     return null;
-  }
-
-  @override
-  Future<PurchaseResponse> makePurchase({required String offerId}) async {
-    throw UnimplementedError();
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:marketplace_nuconta/app/domain/entity/entity.dart';
 import 'package:marketplace_nuconta/app/domain/usecase/make_purshase_usecase.dart';
+import 'package:marketplace_nuconta/app/factory/app_controller_factory.dart';
+import 'package:marketplace_nuconta/app/ui/pages/app_controller.dart';
 import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_controller.dart';
 import 'package:mockito/mockito.dart';
 
@@ -11,10 +13,15 @@ import '../test_utils/test_utils.dart';
 void main() {
   late MakePurchaseUseCase useCaseMock;
   late MarketplaceController controller;
+  late AppController appController;
 
   setUp(() {
-    useCaseMock = MockMakePurshaseUseCase();
-    controller = MarketplaceController(makePurchaseUseCase: useCaseMock);
+    appController = MockAppController();
+    useCaseMock = MockMakePurchaseUseCase();
+    controller = MarketplaceController(
+      makePurchaseUseCase: useCaseMock,
+      appController: appController,
+    );
   });
 
   test('shoud make a purchase correctly', () async {
@@ -37,8 +44,8 @@ void main() {
     await controller.makePurchase(offerId: 'some-id');
 
     expect(controller.purshaseResponse.value is PurchaseResponse, true);
-    expect(controller.purshaseResponse.value.errorMessage, 'Offer expired');
-    expect(controller.purshaseResponse.value.success, false);
+    expect(controller.purshaseResponse.value!.errorMessage, 'Offer expired');
+    expect(controller.purshaseResponse.value!.success, false);
   });
 
   test('shoud return an error when don\'t have enough balance', () async {
@@ -50,9 +57,9 @@ void main() {
 
     expect(controller.purshaseResponse.value is PurchaseResponse, true);
     expect(
-      controller.purshaseResponse.value.errorMessage,
+      controller.purshaseResponse.value!.errorMessage,
       'You don\'t have that much money.',
     );
-    expect(controller.purshaseResponse.value.success, false);
+    expect(controller.purshaseResponse.value!.success, false);
   });
 }

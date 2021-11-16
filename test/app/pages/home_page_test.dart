@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:graphql/client.dart';
@@ -7,6 +6,7 @@ import 'package:marketplace_nuconta/app/routes/app_routes.dart';
 import 'package:marketplace_nuconta/app/ui/components/rounded_button.dart';
 import 'package:marketplace_nuconta/app/ui/pages/app_controller.dart';
 import 'package:marketplace_nuconta/app/ui/pages/home/home_page.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_controller.dart';
 import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_page.dart';
 import 'package:marketplace_nuconta/app/ui/util/util.dart';
 import 'package:network_image_mock/network_image_mock.dart';
@@ -17,11 +17,14 @@ import 'nu_app_mock.dart';
 
 void main() {
   late GraphQLClient client;
+  late MarketplaceController marketplaceController;
   late AppController appController;
 
   setUp(() {
     client = MockGraphQLClient();
-    appController = AppControllerFactory.create(
+    appController = AppControllerFactory.create(graphQLClient: client);
+    marketplaceController = MarketplaceControllerFactory.create(
+      appController: appController,
       graphQLClient: client,
     );
   });
@@ -29,7 +32,7 @@ void main() {
   routes() => [
         GetPage(
           name: AppRoutes.marketplace,
-          page: () => Marketplace(controller: appController),
+          page: () => MarketplacePage(controller: marketplaceController),
         ),
       ];
 

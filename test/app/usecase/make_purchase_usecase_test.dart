@@ -27,7 +27,7 @@ void main() {
     final response = await makePurchaseUseCase.execute(offerId: 'some-id');
 
     expect(response is PurchaseResponse, true);
-    expect(response.customer!.balance, 995000);
+    expect(response!.customer!.balance, 995000);
     expect(response.success, true);
     expect(response.errorMessage, '');
   });
@@ -40,7 +40,7 @@ void main() {
     final response = await makePurchaseUseCase.execute(offerId: 'some-id');
 
     expect(response is PurchaseResponse, true);
-    expect(response.customer!.balance, 1000000);
+    expect(response!.customer!.balance, 1000000);
     expect(response.success, false);
     expect(response.errorMessage, 'Offer expired');
   });
@@ -53,7 +53,7 @@ void main() {
     final response = await makePurchaseUseCase.execute(offerId: 'some-id');
 
     expect(response is PurchaseResponse, true);
-    expect(response.customer!.balance, 1000000);
+    expect(response!.customer!.balance, 1000000);
     expect(response.success, false);
     expect(response.errorMessage, 'You don\'t have that much money.');
   });

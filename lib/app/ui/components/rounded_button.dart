@@ -31,7 +31,7 @@ class RoundedButton extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
         ),
-        onPressed: () => {if (onPress != null) onPress!()},
+        onPressed: loading ? null : () => {if (onPress != null) onPress!()},
         child: Container(
           padding: EdgeInsets.only(left: 10, right: 10),
           child: this.loading

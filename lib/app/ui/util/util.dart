@@ -14,6 +14,7 @@ class Util {
   static Future<dynamic> getDialog({
     required String title,
     required String subtitle,
+    bool loading = false,
     String? confirm = '',
     String? cancel,
     Function? actionConfirm,
@@ -27,6 +28,7 @@ class Util {
       middleText: subtitle,
       confirm: confirm != null
           ? RoundedButton(
+              loading: loading,
               text: confirm,
               onPress: () {
                 if (actionConfirm != null) actionConfirm();

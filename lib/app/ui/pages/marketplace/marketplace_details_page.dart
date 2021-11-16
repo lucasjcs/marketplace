@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:marketplace_nuconta/app/routes/app_routes.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_controller.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/purchase_completed.dart';
 import 'package:marketplace_nuconta/app/ui/util/util.dart';
 
 import '../../../domain/entity/entity.dart';
@@ -9,10 +11,10 @@ import '../../styles/app_colors.dart';
 import '../../styles/styles.dart';
 
 class MarketPlaceDetails extends StatelessWidget {
+  final MarketplaceController controller;
   final Offer offer;
-  final Function buy;
 
-  const MarketPlaceDetails({required this.offer, required this.buy});
+  const MarketPlaceDetails({required this.offer, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -81,15 +83,14 @@ class MarketPlaceDetails extends StatelessWidget {
                   fullWidth: true,
                   onPress: () async {
                     await Util.getDialog(
+                      loading: controller.loading.value,
                       title: 'Do you want to complete the purchase?',
                       subtitle:
                           'You are buying a ${offer.product!.name}, want to continue?',
                       confirm: 'Yes, buy now',
                       cancel: 'Cencel',
                       actionConfirm: () {
-                        //Make a purshas
-
-                        Get.offAllNamed(AppRoutes.homePage);
+                        controller.makePurchase(offerId: offer.id!);
                       },
                       actionCancel: () => Get.back(),
                     );

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_nuconta/app/domain/entity/entity.dart';
-import 'package:marketplace_nuconta/app/ui/pages/marketplace/components/offer_item.dart';
-import 'package:marketplace_nuconta/app/ui/styles/app_colors.dart';
+import '../../pages/marketplace/components/offer_item.dart';
+import '../../pages/marketplace/marketplace_controller.dart';
+import '../../styles/app_colors.dart';
 
 import '../../components/components.dart';
-import '../app_controller.dart';
 
-class Marketplace extends StatelessWidget {
-  final AppController controller;
+class MarketplacePage extends StatelessWidget {
+  final MarketplaceController controller;
 
-  const Marketplace({required this.controller});
+  const MarketplacePage({required this.controller});
 
   @override
   Widget build(BuildContext context) {
+    final customer = controller.appController.customer.value;
+
     return DefaultScaffold(
       showAppBar: true,
       title: NuText(
@@ -41,10 +42,13 @@ class Marketplace extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 children: [
-                  ...controller.customer.value!.offers!.map(
+                  ...customer!.offers!.map(
                     (offer) => Column(
                       children: [
-                        OfferItem(offer: offer),
+                        OfferItem(
+                          offer: offer,
+                          controller: controller,
+                        ),
                         SizedBox(height: 10),
                       ],
                     ),

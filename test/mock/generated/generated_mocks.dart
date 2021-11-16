@@ -2,6 +2,7 @@ import 'package:graphql/client.dart';
 import 'package:marketplace_nuconta/app/domain/gateways/gateways.dart';
 import 'package:marketplace_nuconta/app/domain/usecase/make_purshase_usecase.dart';
 import 'package:marketplace_nuconta/app/domain/usecase/usecase.dart';
+import 'package:marketplace_nuconta/app/ui/pages/app_controller.dart';
 import 'package:mockito/annotations.dart';
 
 export 'generated_mocks.mocks.dart';
@@ -12,6 +13,7 @@ export 'generated_mocks.mocks.dart';
   GetCustomerDataUseCase,
   MakePurchaseGateway,
   MakePurchaseUseCase,
+  AppController,
   QueryOptions,
   GraphQLClient,
 ])

@@ -6,19 +6,21 @@ class DefaultScaffold extends StatelessWidget {
   final Widget body;
   final bool showAppBar;
   final bool safeArea;
+  final Color? backgroundColor;
 
   const DefaultScaffold({
     required this.body,
     this.title,
     this.showAppBar = false,
     this.safeArea = true,
+    this.backgroundColor = AppColors.white,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: this.backgroundColor,
       appBar: showAppBar
           ? AppBar(
               backgroundColor: AppColors.purple,

@@ -39,7 +39,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/app/assets/images/loading_dots.gif
+    - lib/app/assets/images/
     - .env
 
   # fonts:
