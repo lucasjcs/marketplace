@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:marketplace_nuconta/app/ui/constants/constants.dart';
 
 import '../../domain/entity/entity.dart';
 import '../../domain/usecase/get_customer_data_usecase.dart';
@@ -9,15 +10,26 @@ class AppController extends GetxController with PageState {
 
   AppController({required this.getCustomerDataUseCase});
 
-  late var customer = Rx<Customer?>(null);
+  Rx<Customer?> _customer = Rx<Customer?>(null);
 
-  Future<void> getCustomerData({Function? onSuccess, Function? onError}) async {
-    customer.value = await this.run<Customer?>(
+  Future<void> getCustomerData({
+    required Function(Customer) onSuccess,
+  }) async {
+    _customer.value = await this.run<Customer?>(
       () => getCustomerDataUseCase.execute(),
-      errorMessage: 'something went wrong. please try again',
+      errorMessage: Strings.default_error_message,
     );
 
-    if (!this.error.value && onSuccess != null) onSuccess();
-    if (this.error.value && onError != null) onError();
+    if (!this.error.value && _customer.value != null) {
+      onSuccess(_customer.value!);
+    }
   }
+
+  void updateBalance(int value) {
+    this._customer.value!.balance = value;
+    this._customer.refresh();
+  }
+
+  Customer get customer => this._customer.value!;
+  void set customer(Customer value) => this._customer.value = value;
 }

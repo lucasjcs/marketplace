@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:marketplace_nuconta/app/routes/app_routes.dart';
-import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_controller.dart';
 
 import '../../../../assets/app_images.dart';
+import '../../../../domain/entity/entity.dart';
 import '../../../components/components.dart';
 import '../../../components/rounded_button.dart';
-import '../marketplace_details_page.dart';
 import '../../../styles/styles.dart';
 import '../../../util/util.dart';
-
-import '../../../../domain/entity/entity.dart';
 import '../../../styles/app_colors.dart';
+
+import '../marketplace_details_page.dart';
 
 class OfferItem extends StatelessWidget {
   final Offer offer;
-  final MarketplaceController controller;
 
-  const OfferItem({required this.offer, required this.controller});
+  const OfferItem({required this.offer});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class OfferItem extends StatelessWidget {
             children: [
               FadeInImage.assetNetwork(
                 placeholder: AppImages.loadingDots,
-                image: offer.product!.image!,
+                image: offer.product.image,
                 width: 80,
                 height: 80,
               ),
@@ -46,12 +43,12 @@ class OfferItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: NuText(
-                        text: '${offer.product!.name}',
+                        text: '${offer.product.name}',
                         center: true,
                         maxLines: 1),
                   ),
                   Money(
-                    value: Util.toMoney(offer.price!),
+                    value: Util.toMoney(offer.price),
                     bold: true,
                     size: AppFontSize.standard,
                     color: AppColors.purple,
@@ -68,7 +65,6 @@ class OfferItem extends StatelessWidget {
               Get.to(
                 () => MarketPlaceDetails(
                   offer: offer,
-                  controller: controller,
                 ),
               );
             },

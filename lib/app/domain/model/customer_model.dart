@@ -6,7 +6,7 @@ class CustomerModel extends Customer {
   final String? id;
   final String? name;
   final List<OfferModel>? offers;
-  final int? balance;
+  int? balance;
 
   CustomerModel({
     this.id,
@@ -16,6 +16,7 @@ class CustomerModel extends Customer {
   }) : super(
           id: id,
           name: name,
+          offers: offers,
           balance: balance,
         );
 

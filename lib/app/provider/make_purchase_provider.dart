@@ -1,33 +1,24 @@
 import 'package:graphql/client.dart';
-import 'package:marketplace_nuconta/app/domain/entity/entity.dart';
-import 'package:marketplace_nuconta/app/domain/gateways/make_purchase_gateway.dart';
-import 'package:marketplace_nuconta/app/domain/model/purchase_response_model.dart';
+
+import '../domain/entity/entity.dart';
+import '../domain/gateways/gateways.dart';
+import '../domain/model/model.dart';
+
+import 'graphql/client/client_graphql.dart';
+import 'graphql/queries/graphql_queries.dart';
 
 class MakePurchaseProvider implements MakePurchaseGateway {
-  final GraphQLClient graphQLClient;
+  final ClientGraphQL graphQLClient;
 
   MakePurchaseProvider({required this.graphQLClient});
 
   @override
   Future<PurchaseResponse?> makePurchase({required String offerId}) async {
     final options = MutationOptions(
-      document: gql(
-        '''mutation {
-            purchase (offerId: \"$offerId\") {
-                success
-                errorMessage
-                customer {
-                    id
-                    name
-                    balance
-                }
-              }
-            }
-        ''',
-      ),
+      document: GraphQLQueries.purchase(offerId),
     );
 
-    final response = await graphQLClient.mutate(options);
+    final response = await graphQLClient.mutate(options: options);
 
     if (!response.hasException && response.data != null) {
       return PurchaseResponseModel.fromJson(response.data!['purchase']);

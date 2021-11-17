@@ -13,7 +13,7 @@ scripts:
   appicon: flutter pub run flutter_launcher_icons:main -f pubspec.yaml
   apk: flutter build apk
   test: flutter test --coverage ./lib
-  coverage: genhtml -o coverage coverage/lcov.info & xdg-open coverage/index-sort-l.html #works on linux
+  coverage: genhtml -o coverage coverage/lcov.info
 
 dependencies:
   flutter:
@@ -41,13 +41,3 @@ flutter:
   assets:
     - lib/app/assets/images/
     - .env
-
-  # fonts:
-  #   - family: Roboto
-  #     fonts:
-  #       - asset: lib/app/assets/fonts/Roboto-Black.ttf
-  #       - asset: lib/app/assets/fonts/Roboto-Bold.ttf
-  #         weight: 700
-  #       - asset: lib/app/assets/fonts/Roboto-Light.ttf
-  #       - asset: lib/app/assets/fonts/Roboto-Medium.ttf
-  #       - asset: lib/app/assets/fonts/Roboto-Regular.ttf

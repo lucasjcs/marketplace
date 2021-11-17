@@ -1,31 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marketplace_nuconta/app/routes/app_routes.dart';
-import 'package:marketplace_nuconta/app/ui/styles/app_colors.dart';
+
+import '../../constants/constants.dart';
+import '../../util/util.dart';
+import '../../pages/home/home_page.dart';
+import '../../styles/app_colors.dart';
 import '../splash/components/splash_scaffold.dart';
 
 import '../../components/loading.dart';
 import '../../pages/app_controller.dart';
 
 class SplashPage extends StatelessWidget {
-  final AppController controller;
-
-  const SplashPage({required this.controller});
+  final AppController controller = Get.find(tag: Tags.appController);
 
   @override
   Widget build(BuildContext context) {
     controller.getCustomerData(
-      onSuccess: () => Get.offNamed(AppRoutes.homePage),
-      // onError: () => Get.toNamed(AppRoutes.errorPage);
+      onSuccess: (_) {
+        Get.off(() => HomePage());
+      },
     );
 
     return SplashScaffold(
-      child: Obx(
-        () => Column(
+      child: Obx(() {
+        if (controller.error.value) {
+          Util.showGetErrorSnackBar();
+        }
+        return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Welcome to the purple side',
+              Strings.splash_wellcome,
               style: TextStyle(
                 color: AppColors.white,
                 fontSize: 16,
@@ -38,8 +43,8 @@ class SplashPage extends StatelessWidget {
                   )
                 : Container(),
           ],
-        ),
-      ),
+        );
+      }),
     );
   }
 }

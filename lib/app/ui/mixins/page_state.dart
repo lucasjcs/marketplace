@@ -17,7 +17,7 @@ mixin PageState {
     try {
       this.error.value = false;
       this.loading.value = true;
-      await Future.delayed(Duration(seconds: 3));
+      await Future.delayed(Duration(seconds: 1));
       result = await fn();
     } catch (error) {
       this.error.value = true;

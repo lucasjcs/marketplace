@@ -21,20 +21,19 @@ void main() {
       (_) async => TestUtils.makeCustomerData(),
     );
 
-    await controller.getCustomerData();
-
-    expect(controller.customer.value is CustomerModel, true);
-    expect(controller.loading.value, false);
-    expect(controller.error.value, false);
+    await controller.getCustomerData(onSuccess: (_) {
+      expect(controller.customer is CustomerModel, true);
+      expect(controller.loading.value, false);
+      expect(controller.error.value, false);
+    });
   });
 
   test('shoud return an error when request customer data', () async {
     when(useCaseMock.execute()).thenThrow(Error());
 
-    await controller.getCustomerData();
-
-    expect(controller.loading.value, false);
-    expect(controller.error.value, true);
-    expect(controller.customer.value, null);
+    await controller.getCustomerData(onSuccess: (_) {
+      expect(controller.loading.value, false);
+      expect(controller.error.value, true);
+    });
   });
 }

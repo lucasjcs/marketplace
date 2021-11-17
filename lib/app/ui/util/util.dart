@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:marketplace_nuconta/app/ui/constants/constants.dart';
+import 'package:marketplace_nuconta/app/ui/constants/purchase_status.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/purchase_completed_page.dart';
 
 import '../components/components.dart';
 import '../styles/styles.dart';
@@ -43,5 +46,32 @@ class Util {
             )
           : null,
     );
+  }
+
+  static void showGetErrorSnackBar({
+    String message = Strings.default_error_message,
+  }) {
+    return Get.snackbar(
+      Strings.default_error,
+      message,
+      icon: Icon(Icons.warning, color: AppColors.white),
+      duration: Duration(seconds: 4),
+      backgroundColor: AppColors.lightBrown,
+      colorText: AppColors.white,
+      snackPosition: SnackPosition.BOTTOM,
+      borderRadius: 8,
+      margin: EdgeInsets.all(10),
+    );
+  }
+
+  static void onPurchaseFinishes(
+    PurchaseStatus status, {
+    String? message = Strings.default_error_message,
+  }) {
+    if (status == PurchaseStatus.error) {
+      showGetErrorSnackBar(message: message!);
+    } else {
+      Get.offAll(() => PurchaseCompletedPage());
+    }
   }
 }

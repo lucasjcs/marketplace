@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:marketplace_nuconta/app/ui/constants/constants.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_page.dart';
+import 'package:marketplace_nuconta/app/ui/styles/styles.dart';
 
-import '../../../routes/app_routes.dart';
 import '../../components/rounded_button.dart';
 import '../../styles/app_colors.dart';
 import '../../util/util.dart';
@@ -10,16 +12,17 @@ import '../../pages/app_controller.dart';
 import '../../components/components.dart';
 
 class HomePage extends StatelessWidget {
-  final AppController controller;
-
-  const HomePage({required this.controller});
+  final AppController controller = Get.find(tag: Tags.appController);
 
   @override
   Widget build(BuildContext context) {
+    final customer = controller.customer;
     return DefaultScaffold(
       showAppBar: true,
       title: NuText(
-        text: 'Hello, ${controller.customer.value!.name}',
+        size: AppFontSize.appBarTitle,
+        bold: true,
+        text: '${Strings.default_hello}, ${customer.name}',
         color: AppColors.white,
       ),
       body: Obx(
@@ -34,12 +37,12 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               NuText(
-                text: 'Balance',
+                text: Strings.default_balance,
                 size: 18,
               ),
               SizedBox(height: 10),
               NuText(
-                text: '\$ ${Util.toMoney(controller.customer.value!.balance!)}',
+                text: '\$ ${Util.toMoney(customer.balance!)}',
                 bold: true,
                 size: 18,
               ),
@@ -48,7 +51,7 @@ class HomePage extends StatelessWidget {
               Divider(thickness: 1),
               SizedBox(height: 25),
               NuText(
-                text: 'Discover more',
+                text: Strings.home_discover_more,
                 size: 18,
                 bold: true,
               ),
@@ -64,22 +67,21 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     NuText(
-                      text: 'Nu Marketplace',
+                      text: Strings.home_nu_marketplace,
                       size: 18,
                       bold: true,
                     ),
                     SizedBox(height: 10),
                     NuText(
-                      text:
-                          'Discover nubank marketplace with exclusive offers for you',
+                      text: Strings.home_discover_marketplace,
                       color: AppColors.textLight,
                     ),
                     SizedBox(height: 20),
                     RoundedButton(
                       onPress: () {
-                        Get.toNamed(AppRoutes.marketplace);
+                        Get.to(() => MarketplacePage());
                       },
-                      text: 'Discover',
+                      text: Strings.default_discover,
                     ),
                   ],
                 ),

@@ -1,0 +1,1 @@
+enum PurchaseStatus { error, success }

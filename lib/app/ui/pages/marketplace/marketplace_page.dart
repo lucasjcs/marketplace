@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../constants/constants.dart';
 import '../../pages/marketplace/components/offer_item.dart';
 import '../../pages/marketplace/marketplace_controller.dart';
 import '../../styles/app_colors.dart';
@@ -6,13 +9,12 @@ import '../../styles/app_colors.dart';
 import '../../components/components.dart';
 
 class MarketplacePage extends StatelessWidget {
-  final MarketplaceController controller;
-
-  const MarketplacePage({required this.controller});
+  late final MarketplaceController controller =
+      Get.find(tag: Tags.marketplaceController);
 
   @override
   Widget build(BuildContext context) {
-    final customer = controller.appController.customer.value;
+    final customer = controller.appController.customer;
 
     return DefaultScaffold(
       showAppBar: true,
@@ -42,12 +44,11 @@ class MarketplacePage extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 children: [
-                  ...customer!.offers!.map(
+                  ...customer.offers!.map(
                     (offer) => Column(
                       children: [
                         OfferItem(
                           offer: offer,
-                          controller: controller,
                         ),
                         SizedBox(height: 10),
                       ],

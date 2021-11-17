@@ -3,14 +3,14 @@ import '../../domain/entity/entity.dart';
 import 'model.dart';
 
 class OfferModel extends Offer {
-  final String? id;
-  final int? price;
-  final ProductModel? product;
+  final String id;
+  final int price;
+  final ProductModel product;
 
   OfferModel({
-    this.id,
-    this.price,
-    this.product,
+    required this.id,
+    required this.price,
+    required this.product,
   }) : super(
           id: id,
           price: price,
