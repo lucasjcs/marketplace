@@ -8,7 +8,7 @@ import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_control
 import 'package:mockito/mockito.dart';
 
 import '../../mock/generated/generated_mocks.mocks.dart';
-import '../../mock/purshase_data_mock.dart';
+import '../../mock/purchase_data_mock.dart';
 import '../test_utils/test_utils.dart';
 
 void main() {
@@ -41,7 +41,7 @@ void main() {
         Get.find(tag: 'marketplace_controller');
 
     when(useCaseMock.execute(offerId: 'offer/portal-gun')).thenAnswer(
-      (_) async => TestUtils.makePurshaseResponse(PurshaseDataMock.withSuccess),
+      (_) async => TestUtils.makePurshaseResponse(PurchaseDataMock.withSuccess),
     );
 
     await controller.makePurchase('offer/portal-gun', (status, {message}) {

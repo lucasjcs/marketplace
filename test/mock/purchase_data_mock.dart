@@ -1,4 +1,4 @@
-class PurshaseDataMock {
+class PurchaseDataMock {
   static const expired = ''' 
     {
       "data": {

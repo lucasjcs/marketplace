@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:marketplace_nuconta/app/provider/graphql/client/client_graphql.dart';
-import 'package:marketplace_nuconta/app/ui/constants/constants.dart';
 
+import '../provider/graphql/client/client_graphql.dart';
+import '../ui/constants/constants.dart';
 import '../domain/usecase/usecase.dart';
 import '../provider/provider.dart';
 import '../ui/pages/app_controller.dart';

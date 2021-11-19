@@ -8,6 +8,7 @@ abstract class Strings {
   static const default_cancel = 'Cancel';
   static const default_error = 'Error';
   static const default_close = 'Close';
+  static const default_marketplace = 'Marketplace';
 
   static const splash_wellcome = 'Welcome to the purple side';
 
@@ -23,6 +24,9 @@ abstract class Strings {
   static const marketplace_dialog_buy_now = 'Buy now';
   static const marketplace_not_enough_balance =
       'you don\'t have enough balance to buy this item';
+  static const marketplace_description =
+      'Enjoy the legendary items we\'ve separated for you';
+  static const marketplace_today_picks = 'Today\'s picks';
 
   static const purchase_completed_info = 'Your purchase was successful!';
 }

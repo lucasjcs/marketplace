@@ -1,7 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql/client.dart';
 
-import '../../../domain/model/model.dart';
 import '../../../domain/gateways/gateways.dart';
 
 class ClientGraphQL implements GraphqlMutateGateway, GraphqlQueryGateway {
@@ -25,10 +24,12 @@ class ClientGraphQL implements GraphqlMutateGateway, GraphqlQueryGateway {
   }
 
   @override
-  Future mutate({required MutationOptions options}) async =>
-      await _client.mutate(options);
+  Future mutate({required String query}) async => await _client.mutate(
+        MutationOptions(document: gql(query)),
+      );
 
   @override
-  Future query({required QueryOptions options}) async =>
-      await _client.query(options);
+  Future query({required String query}) async => await _client.query(
+        QueryOptions(document: gql(query)),
+      );
 }

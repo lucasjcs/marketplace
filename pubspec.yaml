@@ -19,7 +19,7 @@ dependencies:
   flutter:
     sdk: flutter
   lint: ^1.7.2
-  get:
+  get: ^4.3.8
   intl:
   cached_network_image: ^3.1.0+1
   network_image_mock: ^2.0.1

@@ -5,7 +5,7 @@ import 'package:marketplace_nuconta/app/domain/usecase/make_purshase_usecase.dar
 import 'package:mockito/mockito.dart';
 
 import '../../mock/generated/generated_mocks.mocks.dart';
-import '../../mock/purshase_data_mock.dart';
+import '../../mock/purchase_data_mock.dart';
 import '../test_utils/test_utils.dart';
 
 void main() {
@@ -21,7 +21,7 @@ void main() {
 
   test('should make a purshase with success', () async {
     when(makePurchaseGateway.makePurchase(offerId: 'some-id')).thenAnswer(
-      (_) async => TestUtils.makePurshaseResponse(PurshaseDataMock.withSuccess),
+      (_) async => TestUtils.makePurshaseResponse(PurchaseDataMock.withSuccess),
     );
 
     final response = await makePurchaseUseCase.execute(offerId: 'some-id');
@@ -34,7 +34,7 @@ void main() {
 
   test('should make a purshase with expired item', () async {
     when(makePurchaseGateway.makePurchase(offerId: 'some-id')).thenAnswer(
-      (_) async => TestUtils.makePurshaseResponse(PurshaseDataMock.expired),
+      (_) async => TestUtils.makePurshaseResponse(PurchaseDataMock.expired),
     );
 
     final response = await makePurchaseUseCase.execute(offerId: 'some-id');
@@ -47,7 +47,7 @@ void main() {
 
   test('should make a purshase with success', () async {
     when(makePurchaseGateway.makePurchase(offerId: 'some-id')).thenAnswer(
-      (_) async => TestUtils.makePurshaseResponse(PurshaseDataMock.notMoney),
+      (_) async => TestUtils.makePurshaseResponse(PurchaseDataMock.notMoney),
     );
 
     final response = await makePurchaseUseCase.execute(offerId: 'some-id');

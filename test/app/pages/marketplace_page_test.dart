@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 
 import 'package:marketplace_nuconta/app/ui/components/rounded_button.dart';
 import 'package:marketplace_nuconta/app/ui/pages/app_controller.dart';
-import 'package:marketplace_nuconta/app/ui/pages/home/home_page.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/components/offer_item.dart';
 import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_controller.dart';
+import 'package:marketplace_nuconta/app/ui/pages/marketplace/marketplace_page.dart';
 
-import 'package:marketplace_nuconta/app/ui/util/util.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
 import '../../mock/generated/generated_mocks.dart';
@@ -37,38 +37,45 @@ void main() {
   renderApp(WidgetTester tester) async {
     await tester.pumpWidget(
       NuAppMock(
-        widget: HomePage(),
+        widget: MarketplacePage(),
       ),
     );
 
     await tester.pumpAndSettle();
   }
 
-  testWidgets('should render the home page', (WidgetTester tester) async {
+  testWidgets('should render the marketplace page',
+      (WidgetTester tester) async {
     appController.customer = await TestUtils.makeCustomerData();
 
-    await renderApp(tester);
+    await mockNetworkImagesFor(() async {
+      await renderApp(tester);
 
-    expect(find.text('Hello, Jerry Smith'), findsOneWidget);
-    expect(find.text('Balance'), findsOneWidget);
-    expect(find.text('\$ ${Util.toMoney(appController.customer.balance!)}'),
-        findsOneWidget);
-    expect(find.text('Nu Marketplace'), findsOneWidget);
+      expect(find.text('Marketplace'), findsOneWidget);
+      expect(
+        find.text('Enjoy the legendary items we\'ve separated for you'),
+        findsOneWidget,
+      );
+      expect(find.byType(OfferItem), findsNWidgets(4));
+    });
   });
 
   /**
    * Integration
    */
-  testWidgets('should navigate to marketplace ', (WidgetTester tester) async {
+  testWidgets('should navigate to details', (WidgetTester tester) async {
     appController.customer = await TestUtils.makeCustomerData();
 
-    await renderApp(tester);
     await mockNetworkImagesFor(() async {
-      await tester.tap(find.byType(RoundedButton));
-      await tester.pumpAndSettle();
-    });
+      await renderApp(tester);
 
-    expect(find.text('Marketplace'), findsOneWidget);
-    expect(find.text('Today\'s picks'), findsOneWidget);
+      await tester.tap(find.text('See more').first);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Portal Gun'), findsNWidgets(2));
+      expect(find.text('Description'), findsOneWidget);
+      expect(find.byType(RoundedButton), findsOneWidget);
+      expect(find.text('Buy'), findsOneWidget);
+    });
   });
 }

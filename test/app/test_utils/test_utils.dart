@@ -7,10 +7,10 @@ import 'package:marketplace_nuconta/app/domain/model/purchase_response_model.dar
 import '../../mock/customer_data_mock.dart';
 
 class TestUtils {
-  static Future<CustomerModel> makeCustomerData() async {
+  static CustomerModel makeCustomerData() {
     final data = jsonDecode(
       CustomerDataMock.customerData,
-    )['data']['viewer'];
+    )['viewer'];
 
     return CustomerModel.fromJson(data);
   }

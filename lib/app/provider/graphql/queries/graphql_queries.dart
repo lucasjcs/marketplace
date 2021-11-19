@@ -1,8 +1,5 @@
-import 'package:graphql/client.dart';
-
 abstract class GraphQLQueries {
-  static purchase(offerId) => gql(
-        '''mutation {
+  static purchase(offerId) => '''mutation {
             purchase (offerId: \"$offerId\") {
                 success
                 errorMessage
@@ -13,10 +10,9 @@ abstract class GraphQLQueries {
                 }
               }
             }
-        ''',
-      );
+        ''';
 
-  static final getCustomerData = gql(r''' 
+  static final getCustomerData = r''' 
       query {
           viewer {
             id
@@ -34,5 +30,5 @@ abstract class GraphQLQueries {
             }
           }
       }
-     ''');
+     ''';
 }

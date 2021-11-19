@@ -19,7 +19,7 @@ class MarketplacePage extends StatelessWidget {
     return DefaultScaffold(
       showAppBar: true,
       title: NuText(
-        text: 'Marketplace',
+        text: Strings.default_marketplace,
         bold: true,
         size: 20,
         color: AppColors.white,
@@ -29,14 +29,14 @@ class MarketplacePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             NuText(
-              text: 'Enjoy the legendary items we\'ve separated for you',
+              text: Strings.marketplace_description,
               color: AppColors.textLight,
             ),
             SizedBox(height: 20),
             Divider(thickness: 1),
             SizedBox(height: 20),
             NuText(
-              text: 'Today\'s picks',
+              text: Strings.marketplace_today_picks,
               bold: true,
             ),
             SizedBox(height: 25),

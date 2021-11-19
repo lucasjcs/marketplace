@@ -25,70 +25,60 @@ class HomePage extends StatelessWidget {
         text: '${Strings.default_hello}, ${customer.name}',
         color: AppColors.white,
       ),
-      body: Obx(
-        () {
-          if (controller.loading.value) {
-            return Align(
-              alignment: Alignment.topCenter,
-              child: Loading(),
-            );
-          }
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              NuText(
-                text: Strings.default_balance,
-                size: 18,
-              ),
-              SizedBox(height: 10),
-              NuText(
-                text: '\$ ${Util.toMoney(customer.balance!)}',
-                bold: true,
-                size: 18,
-              ),
-              SizedBox(height: 10),
-              SizedBox(height: 30),
-              Divider(thickness: 1),
-              SizedBox(height: 25),
-              NuText(
-                text: Strings.home_discover_more,
-                size: 18,
-                bold: true,
-              ),
-              SizedBox(height: 25),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: AppColors.lightGray,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          NuText(
+            text: Strings.default_balance,
+            size: 18,
+          ),
+          SizedBox(height: 10),
+          NuText(
+            text: '\$ ${Util.toMoney(customer.balance!)}',
+            bold: true,
+            size: 18,
+          ),
+          SizedBox(height: 10),
+          SizedBox(height: 30),
+          Divider(thickness: 1),
+          SizedBox(height: 25),
+          NuText(
+            text: Strings.home_discover_more,
+            size: 18,
+            bold: true,
+          ),
+          SizedBox(height: 25),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: AppColors.lightGray,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                NuText(
+                  text: Strings.home_nu_marketplace,
+                  size: 18,
+                  bold: true,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    NuText(
-                      text: Strings.home_nu_marketplace,
-                      size: 18,
-                      bold: true,
-                    ),
-                    SizedBox(height: 10),
-                    NuText(
-                      text: Strings.home_discover_marketplace,
-                      color: AppColors.textLight,
-                    ),
-                    SizedBox(height: 20),
-                    RoundedButton(
-                      onPress: () {
-                        Get.to(() => MarketplacePage());
-                      },
-                      text: Strings.default_discover,
-                    ),
-                  ],
+                SizedBox(height: 10),
+                NuText(
+                  text: Strings.home_discover_marketplace,
+                  color: AppColors.textLight,
                 ),
-              )
-            ],
-          );
-        },
+                SizedBox(height: 20),
+                RoundedButton(
+                  onPress: () {
+                    Get.to(() => MarketplacePage());
+                  },
+                  text: Strings.default_discover,
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

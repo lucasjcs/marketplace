@@ -18,7 +18,6 @@ class Money extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final money = value.split(',');
-    final decimal = int.tryParse(money.last);
     return Wrap(
       children: [
         NuText(
@@ -27,17 +26,15 @@ class Money extends StatelessWidget {
           bold: bold,
           color: color,
         ),
-        decimal != null && decimal > 0
-            ? Padding(
-                padding: const EdgeInsets.only(top: 1),
-                child: NuText(
-                  text: '${money.last}',
-                  size: size - 4,
-                  bold: bold,
-                  color: color,
-                ),
-              )
-            : Text(''),
+        Padding(
+          padding: const EdgeInsets.only(top: 1),
+          child: NuText(
+            text: '${money.last}',
+            size: size - 4,
+            bold: bold,
+            color: color,
+          ),
+        )
       ],
     );
   }
