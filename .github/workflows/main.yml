@@ -31,4 +31,4 @@ jobs:
         run: echo ${{ secrets.DOTENV }} | base64 -d > .env
       - name: Run pub get
         run: flutter pub get
-        run: flutter test --coverage ./lib >
+        run: flutter test 
