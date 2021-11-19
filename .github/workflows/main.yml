@@ -31,11 +31,15 @@ jobs:
         run: echo ${{ secrets.DOTENV }} | base64 -d > .env
       - name: Run pub get
         run: flutter pub get
+
       - uses: zgosalvez/github-actions-report-lcov@v1
         with:
           coverage-files: coverage/lcov.*.info
           minimum-coverage: 90
           artifact-name: code-coverage-report
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          working-directory: ./lib
+      - name: Run tests
+        run: flutter test --coverage ./lib >
       - name: Run tests
         run: flutter test --coverage ./lib >
