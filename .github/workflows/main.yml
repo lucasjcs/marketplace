@@ -1,12 +1,19 @@
 name: Run Tests
 
 on:
-  workflow_dispatch:
-  pull_request:
-    branches: [master]
+  workflow_call:
+    secrets:
+      DOTENV:
+        required: true
+  push:
+    branches:
+      - main
+  
 
 env:
   flutter_version: "2.5.3"
+  
+
 
 jobs:
   run_tests:
@@ -23,9 +30,9 @@ jobs:
         with:
           flutter-version: ${{ env.flutter_version }}
           channel: stable
-      # Run pub get
+      - name: get enviromnets
+        run: echo ${{ secrets.DOTENV }} | base64 -d > .env
       - name: Run pub get
         run: flutter pub get
-      # Runs tests
       - name: Run tests
         run: flutter test
