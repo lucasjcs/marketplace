@@ -10,5 +10,5 @@ void main() async {
   await dotenv.load(fileName: '.env');
   GetControllerFactory.create(ClientGraphQL());
 
-  runApp(const MyApp());
+  runApp(const NuApp());
 }
