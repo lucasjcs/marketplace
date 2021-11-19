@@ -28,7 +28,8 @@ jobs:
           flutter-version: ${{ env.flutter_version }}
           channel: stable
       - name: get enviromnets
-        run: echo ${{ secrets.DOTENV }} | base64 -d > .env
+        run: echo ${{ secrets.DOTENV }} | base64 -d > .env # Encrypted created in environment variables of private repo on GitHub
       - name: Run pub get
         run: flutter pub get
-        run: flutter test 
+      - name: Run tests
+        run: flutter test --coverage ./lib
